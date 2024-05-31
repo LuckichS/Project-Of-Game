@@ -1,0 +1,145 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5amap8o3bfsi"]
+
+[ext_resource type="Script" path="res://Menus/setting_menu.gd" id="1_a2ss6"]
+[ext_resource type="Texture2D" uid="uid://bx0ltef6yiq0m" path="res://5edd7464-e492-4848-9fb8-1fd5f590b48d.jpeg" id="2_3pvah"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5dbgk"]
+bg_color = Color(0.937255, 0.960784, 0.913725, 0.168627)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3lwp4"]
+bg_color = Color(0.937255, 0.960784, 0.913725, 0.168627)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_388ar"]
+bg_color = Color(0.937255, 0.960784, 0.913725, 0.168627)
+
+[node name="Setting_Menu" type="CanvasLayer"]
+script = ExtResource("1_a2ss6")
+
+[node name="5Edd7464-e492-4848-9Fb8-1Fd5f590b48d" type="Sprite2D" parent="."]
+position = Vector2(946, 591.5)
+scale = Vector2(1.01667, 1.01083)
+texture = ExtResource("2_3pvah")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.493
+anchor_top = 0.799
+anchor_right = 0.493
+anchor_bottom = 0.799
+offset_left = -111.936
+offset_top = -21.752
+offset_right = 75.064
+offset_bottom = 28.248
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Back" type="Button" parent="MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_5dbgk")
+text = "Назад
+"
+
+[node name="Audio_Video" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -419.0
+offset_top = -87.0
+offset_right = 370.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Audio_Video"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Audio_Video/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 150
+
+[node name="Video" type="Button" parent="Audio_Video/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(270, 45)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_3lwp4")
+text = "Видео
+"
+
+[node name="Audio" type="Button" parent="Audio_Video/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(270, 45)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_388ar")
+text = "Аудио
+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Audio_Video/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 150
+
+[node name="Mods" type="Button" parent="Audio_Video/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(270, 45)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_3lwp4")
+text = "Моды
+"
+
+[node name="Generation" type="Button" parent="Audio_Video/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(270, 45)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_388ar")
+text = "Управление
+"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Audio_Video/VBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 150
+
+[node name="Info" type="Button" parent="Audio_Video/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(270, 45)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_3lwp4")
+text = "Информация
+"
+
+[node name="lang" type="Button" parent="Audio_Video/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(270, 45)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 21
+theme_override_styles/normal = SubResource("StyleBoxFlat_388ar")
+text = "Язык
+"
+
+[connection signal="pressed" from="MarginContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Audio_Video/VBoxContainer/HBoxContainer2/Video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="Audio_Video/VBoxContainer/HBoxContainer2/Audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Audio_Video/VBoxContainer/HBoxContainer3/Mods" to="." method="_on_mods_pressed"]
+[connection signal="pressed" from="Audio_Video/VBoxContainer/HBoxContainer3/Generation" to="." method="_on_generation_pressed"]
+[connection signal="pressed" from="Audio_Video/VBoxContainer/HBoxContainer4/Info" to="." method="_on_info_pressed"]
+[connection signal="pressed" from="Audio_Video/VBoxContainer/HBoxContainer4/lang" to="." method="_on_lang_pressed"]

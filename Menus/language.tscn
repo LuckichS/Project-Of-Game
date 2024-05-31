@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbnt4m5oragij"]
+
+[ext_resource type="Script" path="res://Menus/language.gd" id="1_ws517"]
+[ext_resource type="Texture2D" uid="uid://bx0ltef6yiq0m" path="res://5edd7464-e492-4848-9fb8-1fd5f590b48d.jpeg" id="2_lrnx1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7w1k8"]
+bg_color = Color(0.937255, 0.960784, 0.913725, 0.168627)
+
+[node name="Language" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ws517")
+
+[node name="5Edd7464-e492-4848-9Fb8-1Fd5f590b48d" type="Sprite2D" parent="."]
+position = Vector2(941, 581)
+texture = ExtResource("2_lrnx1")
+
+[node name="Back" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.493
+anchor_top = 0.799
+anchor_right = 0.493
+anchor_bottom = 0.799
+offset_left = -74.936
+offset_top = -21.752
+offset_right = 75.064
+offset_bottom = 21.248
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Back" type="Button" parent="Back"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_7w1k8")
+text = "Назад
+"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -66.0
+offset_right = 78.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LANG" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 13
+
+[node name="RU" type="Button" parent="MarginContainer/LANG"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Русский"
+
+[node name="Control" type="Control" parent="MarginContainer/LANG"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EN" type="Button" parent="MarginContainer/LANG"]
+visible = false
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 25
+text = "English"
+
+[connection signal="pressed" from="Back/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/LANG/RU" to="." method="_on_ru_pressed"]
+[connection signal="pressed" from="MarginContainer/LANG/EN" to="." method="_on_en_pressed"]

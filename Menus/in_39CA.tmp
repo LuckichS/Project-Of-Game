@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf24svpp5t6tc"]
+
+[ext_resource type="Script" path="res://Menus/in_game_menu.gd" id="1_0hxvc"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(1150, 7)
+script = ExtResource("1_0hxvc")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -53.0
+offset_bottom = 40.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+
+[node name="ButtonToMenu" type="Button" parent="MarginContainer"]
+process_mode = 1
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Menu
+"
+
+[node name="ConfirmationMenu" type="VBoxContainer" parent="."]
+offset_left = -613.0
+offset_top = 243.0
+offset_right = -446.0
+offset_bottom = 374.0
+
+[node name="Menu" type="Label" parent="ConfirmationMenu"]
+layout_mode = 2
+text = "Меню
+"
+horizontal_alignment = 1
+
+[node name="Save" type="Button" parent="ConfirmationMenu"]
+layout_mode = 2
+text = "Сохранить и выйти
+"
+
+[node name="Run" type="Button" parent="ConfirmationMenu"]
+layout_mode = 2
+text = "Продолжить игру
+"
+
+[connection signal="pressed" from="MarginContainer/ButtonToMenu" to="." method="_on_button_to_menu_pressed"]
+[connection signal="pressed" from="ConfirmationMenu/Save" to="." method="_on_save_pressed"]

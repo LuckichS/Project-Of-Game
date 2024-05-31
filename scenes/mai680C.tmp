@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://cem73nbj65dpd"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_cjh04"]
+
+[sub_resource type="Environment" id="Environment_ppm3g"]
+ambient_light_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+
+[node name="main" type="Node3D"]
+script = ExtResource("1_cjh04")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 3.97037, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ppm3g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8474, 0.530955, 0, -0.530955, 0.8474, 0, 1.72173, 4.46779)

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxfriev6pr5j8"]
+
+[ext_resource type="PackedScene" uid="uid://b0gqrc2nvjb8p" path="res://scenes/tiles/blue.glb" id="1_4vplq"]
+
+[node name="green" type="Node3D"]
+metadata/color = "blue"
+
+[node name="blue" parent="." instance=ExtResource("1_4vplq")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

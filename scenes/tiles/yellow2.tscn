@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://yujcnt6wquwc"]
+
+[ext_resource type="PackedScene" uid="uid://cqllg23ngxqpl" path="res://scenes/tiles/yellow3.glb" id="1_y6n4t"]
+
+[node name="green" type="Node3D"]
+metadata/color = "yellow"
+
+[node name="yellow3" parent="." instance=ExtResource("1_y6n4t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.483, -15.1, 1.025)
+
+[editable path="yellow3"]

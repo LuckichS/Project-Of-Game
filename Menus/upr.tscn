@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvjn7nq0g5fpm"]
+
+[ext_resource type="Script" path="res://Menus/upr.gd" id="1_1d6vi"]
+[ext_resource type="Texture2D" uid="uid://bx0ltef6yiq0m" path="res://5edd7464-e492-4848-9fb8-1fd5f590b48d.jpeg" id="1_dyf73"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_heaet"]
+bg_color = Color(0.937255, 0.960784, 0.913725, 0.168627)
+
+[node name="Upr" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1d6vi")
+
+[node name="5Edd7464-e492-4848-9Fb8-1Fd5f590b48d" type="Sprite2D" parent="."]
+position = Vector2(934, 586)
+texture = ExtResource("1_dyf73")
+
+[node name="Back" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.493
+anchor_top = 0.799
+anchor_right = 0.493
+anchor_bottom = 0.799
+offset_left = -74.936
+offset_top = -21.752
+offset_right = 75.064
+offset_bottom = 21.248
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Back" type="Button" parent="Back"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_heaet")
+text = "Назад
+"
+
+[node name="info_cn" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -257.0
+offset_right = 541.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="info_cn"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="info_cn"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="info_cn/ScrollContainer"]
+layout_mode = 2
+
+[node name="b_info" type="Control" parent="info_cn/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="b_info" type="Label" parent="info_cn/ScrollContainer/VBoxContainer/b_info"]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 26.0
+offset_right = 676.0
+offset_bottom = 60.0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "Управление:"
+
+[node name="Control" type="Control" parent="info_cn/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="info_1" type="Label" parent="info_cn/ScrollContainer/VBoxContainer/Control"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 76.0
+offset_right = 128.0
+offset_bottom = 161.0
+theme_override_font_sizes/font_size = 24
+text = "W - Вверх
+A -  Назад
+S - Вниз
+"
+
+[node name="Control3" type="Control" parent="info_cn/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="info_2" type="Label" parent="info_cn/ScrollContainer/VBoxContainer/Control3"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 180.0
+offset_right = 1055.0
+offset_bottom = 264.0
+theme_override_font_sizes/font_size = 24
+text = "D - Вперед
+Shift -  Ускорение (2 секунды усскорение /  10 ссекунд восстановление стамины)
+ESC - Пауза игры 
+"
+
+[connection signal="pressed" from="Back/Back" to="." method="_on_back_pressed"]

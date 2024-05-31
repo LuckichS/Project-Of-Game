@@ -1,0 +1,60 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5amap8o3bfsi"]
+
+[ext_resource type="Script" path="res://Menus/setting_menu.gd" id="1_a2ss6"]
+
+[node name="Setting_Menu" type="CanvasLayer"]
+script = ExtResource("1_a2ss6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.493
+anchor_top = 0.799
+anchor_right = 0.493
+anchor_bottom = 0.799
+offset_left = -74.936
+offset_top = -21.752
+offset_right = 75.064
+offset_bottom = 21.248
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Back" type="Button" parent="MarginContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "Назад
+"
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.356
+anchor_top = 0.58
+anchor_right = 0.356
+anchor_bottom = 0.58
+offset_left = -50.112
+offset_top = -33.84
+offset_right = -22.112
+offset_bottom = 18.16
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="FullScreen" type="CheckBox" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+
+[node name="FullScrenn" type="Label" parent="MarginContainer2/VBoxContainer/FullScreen"]
+layout_mode = 2
+offset_left = -126.0
+offset_top = -2.0
+offset_right = -9.0
+offset_bottom = 21.0
+text = "Полный экран"
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer2/VBoxContainer"]
+layout_mode = 2
+button_pressed = true
+
+[connection signal="toggled" from="MarginContainer2/VBoxContainer/FullScreen" to="." method="_on_full_screen_toggled"]

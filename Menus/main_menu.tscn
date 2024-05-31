@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://cetlx4ox0yg6e"]
+
+[ext_resource type="Script" path="res://Menus/main_menu.gd" id="1_vt3my"]
+[ext_resource type="Texture2D" uid="uid://bx0ltef6yiq0m" path="res://5edd7464-e492-4848-9fb8-1fd5f590b48d.jpeg" id="2_dxebc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_885qf"]
+bg_color = Color(0.937255, 0.960784, 0.913725, 0.168627)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ojo8"]
+bg_color = Color(0.937255, 0.960784, 0.913725, 0.168627)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0oj8g"]
+bg_color = Color(0.937255, 0.960784, 0.913725, 0.168627)
+
+[node name="Main_Menu" type="CanvasLayer"]
+script = ExtResource("1_vt3my")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -351.0
+offset_top = -265.0
+offset_right = 351.0
+offset_bottom = 265.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 100
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 40
+text = "Бег от судьбы"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(230, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_885qf")
+text = "Играть
+"
+
+[node name="Setting" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ojo8")
+text = "Настройки
+"
+
+[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_0oj8g")
+text = "Выйти из игры
+"
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="StilParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="5Edd7464-e492-4848-9Fb8-1Fd5f590b48d" type="Sprite2D" parent="ParallaxBackground/StilParallaxLayer"]
+position = Vector2(953.5, 607.5)
+scale = Vector2(1.0099, 1.01417)
+texture = ExtResource("2_dxebc")
+
+[node name="MoveParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Setting" to="." method="_on_setting_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -1,0 +1,199 @@
+[gd_scene load_steps=4 format=3 uid="uid://cgbajo0neyidd"]
+
+[ext_resource type="Script" path="res://Menus/info.gd" id="1_7k8hm"]
+[ext_resource type="Texture2D" uid="uid://bx0ltef6yiq0m" path="res://5edd7464-e492-4848-9fb8-1fd5f590b48d.jpeg" id="2_wkfwa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxd6b"]
+bg_color = Color(0.937255, 0.960784, 0.913725, 0.168627)
+
+[node name="Info" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7k8hm")
+
+[node name="5Edd7464-e492-4848-9Fb8-1Fd5f590b48d" type="Sprite2D" parent="."]
+position = Vector2(948, 595)
+texture = ExtResource("2_wkfwa")
+
+[node name="Back" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.493
+anchor_top = 0.799
+anchor_right = 0.493
+anchor_bottom = 0.799
+offset_left = -74.936
+offset_top = -21.752
+offset_right = 75.064
+offset_bottom = 21.248
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="Back" type="Button" parent="Back"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_nxd6b")
+text = "Назад
+"
+
+[node name="info_cn" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -540.0
+offset_top = -257.0
+offset_right = 541.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="info_cn"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="info_cn"]
+layout_mode = 2
+
+[node name="VScrollBar" type="VScrollBar" parent="info_cn/ScrollContainer"]
+custom_minimum_size = Vector2(0, 750)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="info_cn/ScrollContainer/VScrollBar"]
+layout_mode = 2
+offset_bottom = 20.0
+
+[node name="b_info" type="Control" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="b_info" type="Label" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer/b_info"]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 26.0
+offset_right = 676.0
+offset_bottom = 60.0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "Краткие сведения:"
+
+[node name="Control" type="Control" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="info_1" type="Label" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer/Control"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 76.0
+offset_right = 1066.0
+offset_bottom = 161.0
+theme_override_font_sizes/font_size = 18
+text = "Ты - не тот, кем себя считал. Очнувшись в странном, механизированном мире, ты узнаешь, что был всего лишь 
+виртуальной проекцией, частью грандиозного эксперимента  Доктор Злыдень, гениальный, но безумный ученый, 
+создал тебя и множество других, наделяя их искусственной жизнью. Но что-то пошло не так. Твоя \"реальность\" 
+стала кошмаром, заполненным механическими созданиями, стреляющими смертоносными снарядами."
+
+[node name="Control3" type="Control" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="info_2" type="Label" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer/Control3"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 193.0
+offset_right = 1058.0
+offset_bottom = 277.0
+theme_override_font_sizes/font_size = 18
+text = "Твоя задача - выжить! Пробегись по двум мрачным, но уникальным биомам. Первый - заброшенный завод, 
+заполненный ржавыми трубами, грохочущими механизмами и скрытыми ловушками. Второй - заснеженная 
+пустошь, где тебя будут преследовать ледяные монстры, чьи глаза светятся жутким светом."
+
+[node name="Control4" type="Control" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="info_3" type="Label" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer/Control4"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 280.0
+offset_right = 140.0
+offset_bottom = 315.0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 25
+text = "Тебя ждет:"
+
+[node name="Developer" type="Control" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="Developer" type="Label" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer/Developer"]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 453.0
+offset_right = 622.0
+offset_bottom = 487.0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 24
+text = "Разработчики:"
+
+[node name="Control6" type="Control" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer/Control6"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 497.0
+offset_right = 1073.0
+offset_bottom = 572.0
+text = "Наша команда из талантливых и трудолюбивых разработчиков - это как пятиконечная звезда, в которой каждый из нас является
+неповторимым лучиком. Мы объединили свои умения и страсти, чтобы создать удивительный проект, воплотили в жизнь сам-
+ую смелую идую. Наша команда - это сила, креативность и гармония в каждом коде, который мы пишем."
+
+[node name="Control7" type="Control" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer/Control7"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 586.0
+offset_right = 1083.0
+offset_bottom = 713.0
+text = "@tolian4ke - UX/UI дизайнер.
+@luckich_1 - Основной программист
+@Mernom - Программист
+@vafelka53  - Разработчик моделей
+@ra1nak - NPS"
+
+[node name="Control8" type="Control" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer/Control8"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 566.0
+offset_right = 80.0
+offset_bottom = 602.0
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Команда:"
+
+[node name="Control5" type="Control" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer"]
+layout_mode = 2
+
+[node name="info_2" type="Label" parent="info_cn/ScrollContainer/VScrollBar/VBoxContainer/Control5"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 289.0
+offset_right = 1053.0
+offset_bottom = 402.0
+theme_override_font_sizes/font_size = 18
+text = "Безумный бег: Уворачивайся от снарядов, используй укрытия и обманывай механических врагов.
+Два уникальных биома: Исследуй каждый уголок завода и пустоши, чтобы найти секретные проходы и скрытые 
+предметы.
+Сражения с боссами: Встреть лицом к лицу Доктора Злыдня и его самых опасных созданий.
+Бег от Судьбы - это не просто игра. Это борьба за выживание, поиск себя и шанс обрести настоящую свободу."
+
+[connection signal="pressed" from="Back/Back" to="." method="_on_back_pressed"]

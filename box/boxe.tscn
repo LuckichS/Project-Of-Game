@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://uuob0dseh1ny"]
+
+[ext_resource type="Script" path="res://box/boxe.gd" id="1_5d8xm"]
+[ext_resource type="PackedScene" uid="uid://bfbjhlopkkcbb" path="res://turret/roccet_turel.glb" id="1_no1e1"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_5d8xm")
+
+[node name="roccet_turel" parent="." instance=ExtResource("1_no1e1")]
+transform = Transform3D(0.52, 9.09198e-08, 0, -9.09198e-08, 0.52, 0, 0, 0, 0.52, -0.021, -1.048, -0.096)
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.171117, 0)
+visible = false
+use_collision = true
+height = 0.90055
+metadata/type = "turret"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

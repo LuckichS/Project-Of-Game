@@ -1,0 +1,95 @@
+[gd_scene load_steps=11 format=3 uid="uid://cem73nbj65dpd"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_cjh04"]
+[ext_resource type="Script" path="res://scenes/CharacterBody3D.gd" id="2_t0e1l"]
+[ext_resource type="PackedScene" uid="uid://cjuuyijp36drw" path="res://person/mentos.glb" id="3_n6j7q"]
+[ext_resource type="PackedScene" uid="uid://cf24svpp5t6tc" path="res://Menus/in_game_menu.tscn" id="3_ryxmc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ro8kr"]
+ground_bottom_color = Color(0.452388, 0.599396, 1, 1)
+ground_horizon_color = Color(0.00125313, 0, 0.891542, 1)
+ground_curve = 0.355064
+
+[sub_resource type="Sky" id="Sky_2cn5v"]
+sky_material = SubResource("ProceduralSkyMaterial_ro8kr")
+
+[sub_resource type="Environment" id="Environment_ppm3g"]
+background_mode = 2
+background_color = Color(0.00784314, 0, 0.141176, 1)
+sky = SubResource("Sky_2cn5v")
+ambient_light_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2cdvw"]
+radius = 0.206357
+height = 2.27566
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dkdg"]
+size = Vector3(19.1195, 1.94543, 0.326782)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_77og7"]
+size = Vector3(0.229401, 1.95392, 4.94235)
+
+[node name="main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.4904, 0)
+script = ExtResource("1_cjh04")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ppm3g")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8474, 0.530955, 0, -0.530955, 0.8474, 0, 8.96829, -5.70622)
+directional_shadow_mode = 0
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.022454, -0.0495949, -5.5097)
+script = ExtResource("2_t0e1l")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, -0.236174, 0.550999, 0.517)
+shape = SubResource("CapsuleShape3D_2cdvw")
+
+[node name="mentos" parent="CharacterBody3D" instance=ExtResource("3_n6j7q")]
+transform = Transform3D(-1.63918e-08, 0, 0.375, 0, 0.375, 0, -0.375, 0, -1.63918e-08, -0.744, -0.076, 0.543)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48118, 1.27645, -6.61664)
+shape = SubResource("BoxShape3D_6dkdg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38323, 1.27645, -1.72166)
+shape = SubResource("BoxShape3D_6dkdg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0126, 1.24477, -4.18494)
+shape = SubResource("BoxShape3D_77og7")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.606594, 1.27233, -4.31739)
+shape = SubResource("BoxShape3D_77og7")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.51628, 1.09127, -6.57759)
+size = Vector3(18.7668, 1.95313, 0.568848)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.2354, 1.06081, -4.14446)
+size = Vector3(0.717285, 2.00836, 5.66031)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.12893, 1.08309, -4.16539)
+size = Vector3(1, 1.97083, 5.65454)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.51645, 1.09127, -1.61399)
+size = Vector3(18.7929, 1.95313, 0.568848)
+
+[node name="Node2D" parent="." instance=ExtResource("3_ryxmc")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.79653, -0.553184, 0.243983, 0, 0.403545, 0.91496, -0.604599, 0.728793, -0.321436, 0.0325959, 2.06382, -5.99021)
+fov = 88.5942

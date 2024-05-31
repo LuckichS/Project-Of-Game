@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cat1cl0pa8h0u"]
+
+[ext_resource type="PackedScene" uid="uid://bf712ufhf7ld6" path="res://bullet.glb" id="1_fp22j"]
+[ext_resource type="Script" path="res://scenes/bullet.gd" id="1_t1ui4"]
+
+[node name="bullet" type="Node3D"]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+script = ExtResource("1_t1ui4")
+
+[node name="bullet" parent="." instance=ExtResource("1_fp22j")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0126187, 0, -0.0320139)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+transform = Transform3D(1.925, 0, 0, 0, 1.925, 0, 0, 0, 1.925, 0, 0, 0)
+visible = false
+use_collision = true
+metadata/type = "bullet"
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

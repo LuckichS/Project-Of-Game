@@ -1,0 +1,69 @@
+[gd_scene load_steps=6 format=3 uid="uid://cinnl88okxbif"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkir7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d67p8"]
+bg_color = Color(0.388235, 0.666667, 0.545098, 1)
+
+[sub_resource type="GDScript" id="GDScript_70l5p"]
+script/source = "extends ProgressBar
+
+@onready var timer = $Timer
+@onready var damage_bar = $DamageBar
+@onready var HP = $HP
+
+var health = 0 : set = _set_health
+
+func _set_health(new_health):
+	var prev_health = health
+	health = min(max_value, new_health)
+	value = health
+	
+	if health <= 0:
+		queue_free()
+	
+	if health < prev_health:
+		timer.start()
+	else:
+		damage_bar.value = health
+
+func init_health(_health):
+	health = _health
+	max_value = health
+	value = health
+	damage_bar.max_value = health
+	damage_bar.value = health
+"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nv76u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rj3y1"]
+bg_color = Color(0.970507, 0.930659, 0.995098, 1)
+
+[node name="HealthBar" type="ProgressBar"]
+offset_left = 10.0
+offset_top = 6.0
+offset_right = 169.0
+offset_bottom = 21.0
+theme_override_styles/background = SubResource("StyleBoxEmpty_rkir7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_d67p8")
+value = 100.0
+show_percentage = false
+script = SubResource("GDScript_70l5p")
+
+[node name="DamageBar" type="ProgressBar" parent="."]
+z_index = -1
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_nv76u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_rj3y1")
+value = 100.0
+show_percentage = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4

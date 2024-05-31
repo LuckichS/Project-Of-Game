@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://cem73nbj65dpd"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_cjh04"]
+[ext_resource type="Script" path="res://scenes/Camera3D.gd" id="3_c1jax"]
+[ext_resource type="PackedScene" uid="uid://cf24svpp5t6tc" path="res://Menus/in_game_menu.tscn" id="3_ryxmc"]
+[ext_resource type="PackedScene" uid="uid://d2khgo5uxk7s1" path="res://scenes/characterd.tscn" id="3_wol8i"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ro8kr"]
+ground_bottom_color = Color(0.452388, 0.599396, 1, 1)
+ground_horizon_color = Color(0.00125313, 0, 0.891542, 1)
+ground_curve = 0.355064
+
+[sub_resource type="Sky" id="Sky_2cn5v"]
+sky_material = SubResource("ProceduralSkyMaterial_ro8kr")
+
+[sub_resource type="Environment" id="Environment_ppm3g"]
+background_mode = 2
+background_color = Color(0.00784314, 0, 0.141176, 1)
+sky = SubResource("Sky_2cn5v")
+ambient_light_color = Color(0.0823529, 0.0823529, 0.0823529, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6dkdg"]
+size = Vector3(19.1195, 1.94543, 0.326782)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_77og7"]
+size = Vector3(0.229401, 1.95392, 4.94235)
+
+[node name="main" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.4904, 0)
+script = ExtResource("1_cjh04")
+
+[node name="sky" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ppm3g")
+
+[node name="ight" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.8474, 0.530955, 0, -0.530955, 0.8474, 0, 8.96829, -5.70622)
+directional_shadow_mode = 0
+
+[node name="walls" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.48118, 1.27645, -6.61664)
+shape = SubResource("BoxShape3D_6dkdg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.38323, 1.27645, -1.72166)
+shape = SubResource("BoxShape3D_6dkdg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.0126, 1.24477, -4.18494)
+shape = SubResource("BoxShape3D_77og7")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.606594, 1.27233, -4.31739)
+shape = SubResource("BoxShape3D_77og7")
+
+[node name="Node2D" parent="." instance=ExtResource("3_ryxmc")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.79653, -0.521411, 0.306057, -3.72529e-09, 0.506214, 0.862408, -0.604599, 0.686934, -0.403215, 0.0325959, 2.06382, -5.99021)
+fov = 88.5942
+script = ExtResource("3_c1jax")
+
+[node name="player" parent="." instance=ExtResource("3_wol8i")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.64804, 0.705322, -5.40467)

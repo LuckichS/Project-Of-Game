@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2khgo5uxk7s1"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_55y77"]
+[ext_resource type="Script" path="res://scenes/ProgressBar.gd" id="3_h2m7e"]
+[ext_resource type="PackedScene" uid="uid://b1mht7kjhfgum" path="res://mainPlayer.glb" id="4_cmcmy"]
+[ext_resource type="Script" path="res://scenes/speed.gd" id="4_gnwsp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3igm4"]
+radius = 0.266155
+height = 2.27566
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_horsp"]
+bg_color = Color(0.636651, 0.00507094, 0.175516, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mul1h"]
+bg_color = Color(0, 0.615686, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_55y77")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 0.00995658, 0.47716, -0.00295085)
+shape = SubResource("CapsuleShape3D_3igm4")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(150, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = -41.0
+offset_right = 224.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_horsp")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+script = ExtResource("3_h2m7e")
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -11.5
+offset_right = 19.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 15
+text = "HP
+"
+
+[node name="speed" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(150, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -219.0
+offset_top = -53.0
+offset_right = 215.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_mul1h")
+max_value = 1.0
+step = 0.001
+value = 1.0
+show_percentage = false
+script = ExtResource("4_gnwsp")
+
+[node name="Staminecooldown" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="TimerStamineTime" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[node name="mainPlayer" parent="." instance=ExtResource("4_cmcmy")]
+transform = Transform3D(0.00632701, 0, 0, 0, 0.00797202, 0, 0, 0, 0.00642482, -0.00250226, 0.0738167, 0.391528)
+
+[connection signal="timeout" from="Staminecooldown" to="." method="_on_staminecooldown_timeout"]
+[connection signal="timeout" from="TimerStamineTime" to="." method="_on_timer_stamine_time_timeout"]

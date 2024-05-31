@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2khgo5uxk7s1"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.gd" id="1_55y77"]
+[ext_resource type="PackedScene" uid="uid://cjuuyijp36drw" path="res://person/mentos.glb" id="2_vopw3"]
+[ext_resource type="Script" path="res://scenes/ProgressBar.gd" id="3_h2m7e"]
+[ext_resource type="Script" path="res://scenes/speed.gd" id="4_gnwsp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3igm4"]
+radius = 0.206357
+height = 2.27566
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_horsp"]
+bg_color = Color(0.636651, 0.00507094, 0.175516, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mul1h"]
+bg_color = Color(0, 0.615686, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_55y77")
+
+[node name="mentos" parent="." instance=ExtResource("2_vopw3")]
+transform = Transform3D(-1.63918e-08, 0, 0.375, 0, 0.375, 0, -0.375, 0, -1.63918e-08, -0.497869, -0.149839, -0.00388902)
+
+[node name="Empty" parent="mentos" index="8"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.0100769, 1.54694, 1.41833)
+
+[node name="Empty_001" parent="mentos" index="9"]
+transform = Transform3D(0, 1, 0, 0, 0, -1, -1, 0, 0, -0.0206199, 1.54694, 1.37596)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.415, 0, 0, 0, 0.415, 0, 0, 0, 0.415, 0.00995658, 0.47716, -0.00295085)
+shape = SubResource("CapsuleShape3D_3igm4")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(150, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -229.0
+offset_top = -41.0
+offset_right = 224.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_horsp")
+value = 100.0
+show_percentage = false
+script = ExtResource("3_h2m7e")
+
+[node name="Label" type="Label" parent="ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -11.5
+offset_right = 19.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 15
+text = "HP
+"
+
+[node name="speed" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(150, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -224.0
+offset_top = -52.0
+offset_right = 220.0
+offset_bottom = -46.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_mul1h")
+max_value = 2.0
+value = 2.0
+show_percentage = false
+script = ExtResource("4_gnwsp")
+
+[editable path="mentos"]

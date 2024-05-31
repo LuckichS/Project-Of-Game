@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba5lun1cfkv1o"]
+
+[ext_resource type="PackedScene" uid="uid://dskmeftccrvor" path="res://scenes/tiles/green4.glb" id="1_segmx"]
+
+[node name="green" type="Node3D"]
+metadata/color = "green"
+
+[node name="green4" parent="." instance=ExtResource("1_segmx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8146, -15.1168, 0.805768)
